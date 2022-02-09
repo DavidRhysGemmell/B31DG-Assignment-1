@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="https://structorizer.fisch.lu" version="3.32-06" preRepeat="until " postFor="to" preReturn="return" postForIn="in" preWhile="while " output="OUTPUT" input="INPUT" preFor="for" preExit="exit" preLeave="leave" ignoreCase="true" preThrow="throw" preForIn="foreach" stepFor="by" namespace="" author="David" created="2022-02-08" changedby="David" changed="2022-02-08" origin="Structorizer 3.32-06" text="&#34;Assignment 1&#34;" comment="" color="ffffff" type="program" style="nice">
+	<children>
+		<alternative text="&#34;If Button 1 is pressed&#34;" comment="" color="ffffff" disabled="0">
+			<qTrue>
+				<alternative text="&#34;If Switch 1 setting = 0&#34;" comment="" color="ffffff" disabled="0">
+					<qTrue>
+						<instruction text="&#34;Switch 1 setting = 1&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+					</qTrue>
+					<qFalse>
+						<instruction text="&#34;Switch 1 setting = 0&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+					</qFalse>
+				</alternative>
+			</qTrue>
+			<qFalse color="ffffff">
+			</qFalse>
+		</alternative>
+		<alternative text="&#34;If Button 2 is pressed&#34;" comment="" color="ffffff" disabled="0">
+			<qTrue>
+				<alternative text="&#34;If Switch 2 setting = 0&#34;" comment="" color="ffffff" disabled="0">
+					<qTrue>
+						<instruction text="&#34;Switch 2 setting = 1&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+					</qTrue>
+					<qFalse>
+						<instruction text="&#34;Switch 2 setting = 0&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+					</qFalse>
+				</alternative>
+			</qTrue>
+			<qFalse color="ffffff">
+			</qFalse>
+		</alternative>
+		<alternative text="&#34;Current time - Time when WaveformCycle started &#62;= Waveform Cycle&#34;" comment="" color="ffffff" disabled="0">
+			<qTrue>
+				<instruction text="&#34;Save the time and start a new WaveformCycle.&#34;,&#34;Save settings of Switch 1 and Switch 2  as Next Cycle 1/2 to be used in new Waveform Cycle.&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qTrue>
+			<qFalse color="ffffff">
+			</qFalse>
+		</alternative>
+		<alternative text="&#34;If Current waveformcycle timer &#60;= 50&#34;" comment="" color="ffffff" disabled="0">
+			<qTrue>
+				<instruction text="&#34;Green LED on&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qTrue>
+			<qFalse>
+				<instruction text="&#34;Green LED off&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qFalse>
+		</alternative>
+		<alternative text="&#34;If Next Cycle 1 = 0&#34;" comment="" color="ffffff" disabled="0">
+			<qTrue>
+				<instruction text="" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+				<alternative text="&#34;If the time since starting the Cycle is 50uS&#34;" comment="&#34;&#34;" color="ffffff" disabled="0">
+					<qTrue>
+						<instruction text="&#34;SIG A starts, Save this time as PreviousMicrosa.&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+						<alternative text="&#34;If Next Cycle 2 = 0&#34;" comment="&#34;&#34;" color="ffffff" disabled="0">
+							<qTrue>
+								<instruction text="&#34;Initial a pulse length = a&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+							</qTrue>
+							<qFalse>
+								<instruction text="&#34;Initial a pulse length = maximum pulse length&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+							</qFalse>
+						</alternative>
+					</qTrue>
+					<qFalse color="ffffff">
+					</qFalse>
+				</alternative>
+				<alternative text="&#34;If the time since starting the Cycle is &#62;=50uS&#34;" comment="&#34;&#34;" color="ffffff" disabled="0">
+					<qTrue>
+						<alternative text="&#34;If the current time - PreviousMicrosa &#60;= Pulse length&#34;" comment="&#34;&#34;" color="ffffff" disabled="0">
+							<qTrue>
+								<instruction text="&#34;If the time elapsed since the Cycle started &#60; the Waveform Cycle length - d.(Block Length)&#34;" comment="&#34;Block length is the entire waveformcycle-d&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+								<alternative text="&#34;If the time elapsed since the Cycle started &#60; the Waveform Cycle length - d.(Block Length)&#34;" comment="&#34;&#34;" color="ffffff" disabled="0">
+									<qTrue>
+										<instruction text="&#34;Red LED is on&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+									</qTrue>
+									<qFalse>
+										<instruction text="&#34;Red LED is off as this is time for d.&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+									</qFalse>
+								</alternative>
+							</qTrue>
+							<qFalse>
+								<instruction text="&#34;Red LED off, this is for the time b.&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+							</qFalse>
+						</alternative>
+						<alternative text="&#34;If the time elapsed since the pulse of a starting &#62;= a pulse + b&#34;" comment="&#34;&#34;" color="ffffff" disabled="0">
+							<qTrue>
+								<instruction text="&#34;Start new pulse by saving PreviousMicrosa as current time&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+								<alternative text="&#34;If Next Cycle 2 = 0&#34;" comment="&#34;&#34;" color="ffffff" disabled="0">
+									<qTrue>
+										<instruction text="&#34;Add 50 to the pulse length&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+									</qTrue>
+									<qFalse>
+										<instruction text="&#34;Take 50 away from the pulse length&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+									</qFalse>
+								</alternative>
+							</qTrue>
+							<qFalse color="ffffff">
+							</qFalse>
+						</alternative>
+					</qTrue>
+					<qFalse color="ffffff">
+					</qFalse>
+				</alternative>
+			</qTrue>
+			<qFalse>
+				<instruction text="&#34;Red LED off.&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qFalse>
+		</alternative>
+	</children>
+</root>
